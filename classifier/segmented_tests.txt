@@ -1,0 +1,24 @@
+>>> m23.save('Morphosyntactic_Model_Negativo_Neutro')
+>>> print kfoldcv(SVM, m23, folds=5, type=CLASSIFICATION, kernel=LINEAR)
+(0.6391670685594066, 0.6405272760503948, 0.6399265967770611, 0.6402264501311142)
+>>> print kfoldcv(SVM, m34, folds=5, type=CLASSIFICATION, kernel=LINEAR)
+(0.6090597231252708, 0.6110980023263254, 0.610159898266261, 0.6106283012244446)
+>>> 
+>>> 
+>>> m12=m.create('corpus/Version_5_classes/classes_1_2.txt')
+>>> m12.classes
+[u'muy_negativo', u'negativo']
+>>> print kfoldcv(SVM, m12, folds=5, type=CLASSIFICATION, kernel=LINEAR)
+(0.5542169606932837, 0.5532252027185693, 0.5525570005073528, 0.5528905659187926)
+>>> m45=m.create('corpus/Version_5_classes/classes_4_5.txt')
+>>> m45.classes
+[u'muy_positivo', u'positivo']
+>>> print kfoldcv(SVM, m45, folds=5, type=CLASSIFICATION, kernel=LINEAR)
+(0.543384401114206, 0.5425888766827117, 0.5418597218274922, 0.5422238440862355)
+>>> m12.save('Morphosyntactic_Model_Negativo_MuyNegativo')
+>>> m45.save('Morphosyntactic_Model_Positivo_MuyPositivo')
+>>> c=models.Classifier()
+>>> modelo5=Model.load('Morphosyntactic_Model_5_Classes')
+>>> modelo5.classes
+[u'positivo', u'neutro', u'muy_negativo', u'muy_positivo', u'negativo']
+>>> c
